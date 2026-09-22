@@ -1,0 +1,3 @@
+User-agents: *
+Allow: /
+sitemap: https://rrbpublic.netlify.app/sitemap.xml
