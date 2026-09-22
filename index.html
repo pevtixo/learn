@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pleasure Academy - RRB Public School Affiliate</title>
+    <!-- Importing Fonts: Playfair Display for elegance, Montserrat for readability -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* --- GLOBAL STYLES &amp; RESET --- */
+        :root {
+            --color-primary: #8B0000;
+            /* Deep Crimson/Red for passion */
+            --color-secondary: #D4AF37;
+            /* Gold/Brass for premium feel */
+            --color-dark: #121212;
+            --color-light: #f4f4f4;
+            --color-accent: #E94E77;
+            /* Pink/Bold accent */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--color-accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-3px);
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            color: var(--color-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--color-secondary);
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+
+
+
+        /* --- HERO SECTION --- */
+        #hero {
+            /* Placeholder Image - Replace this URL! */
+            background: url('https://images.pexels.com/photos/1159147/pexels-photo-1159147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            /* Dark overlay for text readability */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-embed {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .video-embed iframe {
+            width: 100%;
+            max-width: 850px;
+            height: 500px;
+            /* Taller to fit better */
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.7);
+        }
+
+        /* --- SCHOOL INFO SECTION --- */
+        #school-info {
+            background-color: #1e1e1e;
+            padding: 60px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .school-details h2 {
+            text-align: left;
+            border-bottom-color: var(--color-primary);
+        }
+
+        .school-details p {
+            margin-bottom: 15px;
+        }
+
+        .school-details strong {
+            color: var(--color-secondary);
+            display: inline-block;
+            width: 150px;
+        }
+
+        /* --- CURRICULUM SECTION --- */
+        #curriculum {
+            background-color: var(--color-dark);
+            padding: 80px 0;
+        }
+
+        .curriculum-grid {
+            display: flex;
+            gap: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .curriculum-card {
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            flex: 1;
+            border-top: 4px solid var(--color-accent);
+            transition: transform 0.3s;
+        }
+
+        .curriculum-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 78, 119, 0.3);
+        }
+
+        .curriculum-card h3 {
+            color: var(--color-secondary);
+            font-size: 1.6rem;
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--color-accent);
+        }
+
+        /* --- FACULTY &amp; PRACTICAL SECTION (Pooja Focus) --- */
+        #faculty {
+            background-color: #0a0a0a;
+            padding: 80px 0;
+        }
+
+        .faculty-flex {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .teacher-bio,
+        .pooja-focus {
+            flex: 1;
+        }
+
+        .pooja-focus {
+            background-color: #2a0d1f;
+            /* Darker, sexier background for Pooja */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(233, 78, 119, 0.7);
+            text-align: center;
+        }
+
+        .pooja-focus h3 {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+        }
+
+        .teacher-img-container img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 5px solid var(--color-secondary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .faculty-list {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .teacher-card {
+            text-align: center;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 8px;
+            width: 30%;
+            transition: border 0.3s;
+            border: 2px solid #333;
+        }
+
+        .teacher-card:hover {
+            border-color: var(--color-accent);
+        }
+
+        /* --- PREMIUM/CALL TO ACTION --- */
+        #cta {
+            background-color: var(--color-primary);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: var(--color-light);
+            border-bottom-color: var(--color-secondary);
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .price-box {
+            background: #330000;
+            border: 3px solid var(--color-secondary);
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .price-box:hover {
+            transform: scale(1.03);
+        }
+
+        .price-box h3 {
+            color: var(--color-accent);
+            font-size: 1.8rem;
+        }
+
+        .price-box .price {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin: 10px 0;
+        }
+
+        .price-box ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 80%;
+        }
+
+        .price-box ul li {
+            padding: 5px 0;
+            border-bottom: 1px dotted #444;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0a0a0a;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 3px solid var(--color-primary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+
+
+
+
+        /* --- MEDIA QUERIES (Responsiveness) --- */
+        @media (max-width: 1024px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faculty-flex {
+                flex-direction: column;
+            }
+
+            .curriculum-grid {
+                flex-direction: column;
+            }
+
+            .price-box {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .video-embed iframe {
+                height: 350px;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
+
+
+        .curriculum-video-container {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 0 0 40px 0;
+            clear: both;
+            isolation: isolate;
+        }
+
+        .curriculum-video-container .video-embed {
+            position: relative !important;
+            width: 100% !important;
+            height: 0 !important;
+            padding-top: 56.338028% !important;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .curriculum-video-container .video-embed iframe {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            border: 0;
+            display: block;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="container">
+            <div class="logo">The Pleasure Academy</div>
+            <nav>
+                <a href="#school-info">School Info</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#faculty">Instructors</a>
+                <a href="#cta">Enroll Now</a>
+            </nav>
+        </div>
+    </header>
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Master the Art of Intimacy.</h1>
+            <p>The definitive, sensual, and highly practical educational platform, affiliated with RRB Public School.
+            </p>
+
+            <a href="#cta" class="btn btn-primary">Start Your Journey to Pleasure Mastery Today!</a>
+        </div>
+    </section>
+
+
+    <div class="curriculum-video-container">
+        <div class="video-embed">
+            <iframe
+                src="https://go.screenpal.com/player/cOQrVmnxhCh?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1"
+                allow="fullscreen *;" allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">(Video Demonstration: See the Art of Performance in Action)</p>
+    </div>
+
+    <div class="curriculum-video-container">
+        <div class="video-embed">
+            <iframe
+                src="https://go.screenpal.com/player/cOQriAnx1OY?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1"
+                allow="fullscreen *;" allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">(Video Demonstration: feel penetration through YOUNG Vagina)</p>
+    </div>
+
+    <div class="curriculum-video-container">
+        <div class="video-embed">
+            <iframe
+                src="https://go.screenpal.com/player/cOQriknx1Oy?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1"
+                allow="fullscreen *;" allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">(Video Demonstration: learn how to Suck men)</p>
+    </div>
+
+
+
+    <!-- SCHOOL AFFILIATION & INFO -->
+    <section id="school-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="school-details">
+                    <h2 class="section-title">Institutional Foundation: RRB Public School</h2>
+                    <p>This academy is built upon the rigorous standard of academic training from:</p>
+                    <p><strong>School Name:</strong> RRB Public School</p>
+                    <p><strong>Affiliation:</strong> CBSE New Delhi</p>
+                    <p><strong>Affiliation Number:</strong> 2133494</p>
+                    <p><strong>Medium of Instruction:</strong> English Medium</p>
+                    <p><strong>Location:</strong> Itraura, Balapur, Karchhana, Prayagraj</p>
+                    <p><strong>Contact:</strong> 9580674843 | 9818002486</p>
+                </div>
+
+                <!-- Placeholder for School Visual -->
+                <div style="text-align: center;">
+                    <img src="picture/school-logo.jpg" alt="RRB Public School Campus"
+                        style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- CURRICULUM & LEARNING SOURCES -->
+    <section id="curriculum">
+        <div class="container">
+            <h2 class="section-title">The Learning Method: Theory to Technique</h2>
+            <p style="text-align: center; margin-bottom: 40px;">We offer layered learning—from deep anatomical knowledge
+                to real-world, hands-on performance.</p>
+
+            <div class="curriculum-grid">
+
+                <div class="curriculum-card">
+                    <div class="icon-box">🧠</div>
+                    <h3>Anatomy &amp;amp; Psychology</h3>
+                    <p>Detailed modules covering the function of the penis and vagina, understanding pleasure pathways,
+                        and biological responses.</p>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="icon-box">💖</div>
+                    <h3>Female Satisfaction Mastery</h3>
+                    <p>Focusing exclusively on female anatomy and desire, teaching techniques to ensure holistic
+                        satisfaction and fulfillment.</p>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="icon-box">🔥</div>
+                    <h3>Hands-On Technique Workshop</h3>
+                    <p>The core 'how-to' module. Learning the practical steps for optimal physical connection—the
+                        mechanics of the act.</p>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="icon-box">💋</div>
+                    <h3>Intimacy & Communication</h3>
+                    <p>Lessons on emotional connection, desire mapping, and communicating needs for a truly satisfying
+                        relationship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FACULTY & PRACTICAL TEACHING -->
+    <section id="faculty">
+        <div class="container">
+            <h2 class="section-title">Our Instructors: Wisdom Meets Seduction</h2>
+
+            <div class="faculty-flex">
+
+                <!-- Pinkesh Mishra: Theory -->
+                <div class="teacher-bio">
+                    <h3 style="color: var(--color-primary);">Pinkesh Mishra - The Academic Guide</h3>
+                    <p>Mr. Mishra provides the foundational knowledge, ensuring every technique is backed by science and
+                        comprehensive understanding of sexual health.</p>
+                    <div class="faculty-list">
+                        <div class="teacher-card">
+                            <img src="picture/pinkesh-mishra.jpg" alt="Pinkesh Mishra"
+                                style="width:100%; height:auto; border-radius:8px;">
+                            <h4>Pinkesh Mishra</h4>
+                            <p>Theoretical Mentor</p>
+                        </div>
+                        <div class="teacher-card">
+                            <img src="picture/pooja-tripathi.jpg" alt="Pooja Tripathi"
+                                style="width:100%; height:auto; border-radius:8px;">
+                            <h4>Pooja Tripathi</h4>
+                            <p>Practical Lead &amp; Instructor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pooja Tripathi: Practice (The Attraction Point) -->
+                <div class="pooja-focus">
+                    <h3>👠 Pooja Tripathi: The Practical Powerhouse 💋</h3>
+                    <p style="font-size: 1.1rem; margin: 20px 0;">The culmination of our program. Pooja delivers the
+                        real-world application—the practical mastery.</p>
+                    <p>This is where theory turns into pleasure. Learn the nuances of connection and technique directly
+                        from her expertise.</p>
+                    <div style="margin-top: 30px;">
+                        <!-- Placeholder for high-impact image of Pooja -->
+                        <img src="picture/pooja-tripathi.jpg" alt="Pooja Tripathi teaching/in practice"
+                            style="width:100%; max-height: 350px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                        <a href="#cta" class="btn btn-secondary">Book a Practical Session with Pooja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- CTA & PREMIUM ENROLLMENT -->
+    <section id="cta">
+        <div class="container">
+            <h2 style="color: white;">Join The Pleasure Academy Tiers</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Select the path that matches your goal—from knowledge to
+                absolute satisfaction.</p>
+
+            <div class="pricing-grid">
+
+                <!-- Tier 1: Basic/Freemium -->
+                <div class="price-box">
+                    <h3>The Beginner</h3>
+                    <p>Foundation Knowledge</p>
+                    <div class="price">$35/mo</div>
+                    <ul>
+                        <li>✅ Core Theory Modules</li>
+                        <li>✅ Basic Video Library</li>
+                        <li>✅ Email Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Enroll Beginner</a>
+                </div>
+
+                <!-- Tier 2: Standard/Pro (Highlighted) -->
+                <div class="price-box" style="border-color: var(--color-accent);">
+                    <h3 style="color: var(--color-accent);">The Enthusiast (Most Popular)</h3>
+                    <p>Complete Understanding</p>
+                    <div class="price">$75/mo</div>
+                    <ul>
+                        <li>✅ All Theory & Practical Content</li>
+                        <li>✅ Community Forum Access</li>
+                        <li>✅ Monthly Live Q&A</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Go Pro Now</a>
+                </div>
+
+                <!-- Tier 3: Premium/VIP -->
+                <div class="price-box">
+                    <h3>The Apex Experience (VIP)</h3>
+                    <p>Total Immersion & Practice</p>
+                    <div class="price">$100/mo</div>
+                    <ul>
+                        <li>✅ All Content</li>
+                        <li>✅ Priority Support</li>
+                        <li>✅ 1x Private Session with Pooja Tripathi</li>
+                        <li>✅ Exclusive Bonus Content</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Unlock VIP</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 The Pleasure Academy. Affiliated with RRB Public School.</p>
+        <p>Contact: 9580674843 / 9818002486</p>
+    </footer>
+
+
+
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Header Fade-in effect for a professional touch
+            const header = document.querySelector('header');
+            header.style.opacity = 0;
+            setTimeout(() => {
+                header.style.transition = 'opacity 0.5s ease';
+                header.style.opacity = 1;
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
