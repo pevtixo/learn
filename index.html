@@ -694,7 +694,7 @@
                         <li>✅ Basic Video Library</li>
                         <li>✅ Email Support</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Enroll Beginner</a>
+                    <a href="#contact" class="btn btn-primary">Enroll Beginner</a>
                 </div>
 
                 <!-- Tier 2: Standard/Pro (Highlighted) -->
@@ -707,7 +707,7 @@
                         <li>✅ Community Forum Access</li>
                         <li>✅ Monthly Live Q&A</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary">Go Pro Now</a>
+                    <a href="#contact" class="btn btn-secondary">Go Pro Now</a>
                 </div>
 
                 <!-- Tier 3: Premium/VIP -->
@@ -721,11 +721,42 @@
                         <li>✅ 1x Private Session with Pooja Tripathi</li>
                         <li>✅ Exclusive Bonus Content</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Unlock VIP</a>
+                    <a href="#contact" class="btn btn-primary">Unlock VIP</a>
                 </div>
 
             </div>
         </div>
+    </section>
+    <!-- Contact / Enroll Form Section -->
+    <section id="contact"
+        style="padding: 40px 20px; max-width: 600px; margin: 0 auto; background-color: #1a1a1a; border-radius: 10px; margin-top: 40px;">
+        <h2 style="color: #E94E77; text-align: center;">Enroll Now or Get Updates</h2>
+        <p style="text-align: center; color: #f4f4f4;">Leave your details below and we will get back to you with course
+            information.</p>
+
+        <!-- The 'netlify' attribute is the magic that makes it work for free -->
+        <form name="contact" method="POST" netlify>
+            <p>
+                <label for="name" style="color: #f4f4f4;">Name:</label><br>
+                <input type="text" id="name" name="name" required
+                    style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid #333;">
+            </p>
+            <p>
+                <label for="email" style="color: #f4f4f4;">Email:</label><br>
+                <input type="email" id="email" name="email" required
+                    style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid #333;">
+            </p>
+            <p>
+                <label for="message" style="color: #f4f4f4;">Message (Optional):</label><br>
+                <textarea id="message" name="message" rows="4"
+                    style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid #333;"></textarea>
+            </p>
+            <p style="text-align: center;">
+                <button type="submit"
+                    style="background-color: #E94E77; color: white; padding: 12px 30px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Submit
+                    Enquiry</button>
+            </p>
+        </form>
     </section>
 
     <!-- FOOTER -->
